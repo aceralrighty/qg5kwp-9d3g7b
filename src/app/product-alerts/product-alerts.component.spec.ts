@@ -1,23 +1,11 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-
-import { ProductAlertsComponent } from './product-alerts.component';
-
-describe('ProductAlertsComponent', () => {
-  let component: ProductAlertsComponent;
-  let fixture: ComponentFixture<ProductAlertsComponent>;
-
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      imports: [ProductAlertsComponent]
-    })
-    .compileComponents();
-    
-    fixture = TestBed.createComponent(ProductAlertsComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
-
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
-});
+import { Component, EventEmitter, Input, Output } from "@angular/core";
+import { Product } from "../products";
+@Component({
+  selector: "app-product-alerts",
+  templateUrl: "./product-alerts.component.html",
+  styleUrls: ["./product-alerts.component.css"],
+})
+export class ProductAlertsComponent {
+  @Input() product: Product | undefined;
+  @Output() notify = new EventEmitter();
+}
